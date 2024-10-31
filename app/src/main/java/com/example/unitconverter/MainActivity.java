@@ -1,7 +1,6 @@
 package com.example.unitconverter;
 
 import android.os.Bundle;
-import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -41,6 +40,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void unitConverter() {
+
+        if (editTextNumber.getText().toString().isEmpty()) {
+            editTextNumber.setError("Vui lòng nhập giá trị");
+            return;
+        }
         // Chuyển đổi giá trị nhập
         double input = Double.parseDouble(editTextNumber.getText().toString());
         String fromUnit = fromUnitSpinner.getSelectedItem().toString();
